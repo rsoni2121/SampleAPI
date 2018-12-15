@@ -70,7 +70,7 @@ Atom feed details published for the newhire collection.
 
 + Request (application/json)
 
-        {
+            {
             "updatedMin": "<Effective start date>",
             "updatedMax" : "<Effective date of update",
             "pageSize" : "1000",
@@ -224,13 +224,11 @@ Format: ?q=expression1;expression2
         {
             "finderName": "",
              "q": ""
-             
-            ]
         }
 
 + Response 200 (application/json)
 
-### Get Employee Details [GET /emps + empsUniqID: '12345' (number, required)] 
+### Get Employee Details [GET /emps] 
 
   Get an employee Details 
   
@@ -238,14 +236,13 @@ Format: ?q=expression1;expression2
 
   For example: emps?q=PersonId=<value1>;EffectiveStartDate=<value2>;CitizenshipId=<value3>;ReligionId=<value4>;PassportId=<value5>;DriversLicenseId=<value6>
 
+ 
   
 + Request (application/json)
 
-        {
-            "empsUniqID": "12345"
-             
-            ]
-        }
+     + Body
+    
+            { "empsUniqID": 12345 }      
 
 + Response 200 (application/json)
 
@@ -1453,6 +1450,10 @@ You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
 form of choices.
 
+
++ Parameters
+    + empsUniqID: `32333310` (number, required) - empsUniqID of employee unique ID.
+
 + Request (application/json)
 
  + Body
@@ -2656,25 +2657,3 @@ form of choices.
               }
 
 + Response 201 (application/json)
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
