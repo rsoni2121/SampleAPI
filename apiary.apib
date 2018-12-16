@@ -93,7 +93,7 @@ Get a particular employee by providing an identifier.
         }
 
 
-### Create an employee [POST /employees]
+### Create an employee [POST /newemployee]
 
 Create an employee, by using post with the complete payload.
 
@@ -101,7 +101,7 @@ Create an employee, by using post with the complete payload.
 
         {"LAST_NAME":"TESTINSERT", "FIRST_NAME":"TESTFIRST", "EMAIL":"TESTMAIL", "HIRE_DATE":"25-JUN-15", "JOB_ID":"IT_PROG", "SALARY":6000, "MANAGER_ID":103, "DEPARTMENT_ID":60}
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
             "employee_id": 220,
