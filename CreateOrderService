@@ -1,0 +1,58 @@
+FORMAT: 1A
+HOST: http://orders.apiblueprint.org/
+
+# CreateOrderService
+
+Create Order Web Service
+
+## Order Service Collection [/orders]
+
+### Create New Order [POST /createorder] 
+
+Create a new Order
+
++  Request (application/json)
+
+        {
+            "ProductName": "name of Product",
+            "CustomerrName": "Customer name",
+            "Price": "Order Price",
+            "Qty": "Order Quantity"
+        }
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+             "Status": "OK",
+             "OrderID": "ORDER300281"
+            }
+
+### Get Order Details [GET /orderdetails] 
+
+Get an Order Details
+
++  Request (application/json)
+
+
+        {
+            "OrderID": 31234
+        }
+
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORDER300281",
+             "ProductName": "Printer Plain Papers",
+             "CustomerName": "Rakesh Soni",
+             "Price": "10.50",
+             "Qty": "15"
+             }
