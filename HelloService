@@ -1,0 +1,31 @@
+FORMAT: 1A
+HOST: http://helloservice.apiblueprint.org/
+
+# HelloService
+
+Create Hello Web Service
+
+## Hello Service Collection [/helloservice]
+
+### Say Hello [POST /sayhello] 
+
+Display Hello Mesage
+
++  Request (application/json)
+
+        {
+            "name": "Msg"
+            
+        }
+        
++ Response 201 (application/json)
+
+   
+   + Body
+
+            {
+             
+             "results": "Welcome to API World!!!"
+             
+             
+            }
