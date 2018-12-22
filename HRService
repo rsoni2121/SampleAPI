@@ -1,0 +1,178 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# HumanResourceService
+
+Human Resource Service is an API to manage Human Resources.
+
+## Employees Collection [/employees]
+
+### Get all employees [GET /employees]
+
+Get all employees.
+
+
++ Response 200 (application/json)
+
+        {
+            "items": [
+                {
+                    "employee_id": 100,
+                    "first_name": "Steven",
+                    "last_name": "King",
+                    "email": "SKING",
+                    "phone_number": "515.123.4567",
+                    "hire_date": "1987-06-17T04:00:00Z",
+                    "job_id": "AD_PRES",
+                    "salary": 24000,
+                    "commission_pct": null,
+                    "manager_id": null,
+                    "department_id": 90,
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "http://localhost:9090/ords/hr/employees/100"
+                        }
+                    ]
+                },
+                {
+                    "employee_id": 101,
+                    "first_name": "Ashima",
+                    "last_name": "Makkar",
+                    "email": "ashima_soni@yahoo.com",
+                    "phone_number": "515.123.4568",
+                    "hire_date": "1989-09-21T04:00:00Z",
+                    "job_id": "AD_VP",
+                    "salary": 17000,
+                    "commission_pct": null,
+                    "manager_id": 100,
+                    "department_id": 90,
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "http://localhost:9090/ords/hr/employees/101"
+                        }
+                            ]
+                }
+                    ]
+            }
+
+
+### Get an employee [GET /employee/{id}]
+
+Get a particular employee by providing an identifier.
+
++ Parameters
+    + id: `220` (number, required) - Id of an employee.
+
+ 
++ Response 200 (application/json)
+
+        {
+        "employee_id": 220,
+        "first_name": "Rakesh",
+        "last_name": "Soni",
+        "email": "rakesh_soniuk@yahoo.com",
+        "phone_number": null,
+        "hire_date": "2015-06-25T04:00:00Z",
+        "job_id": "IT Tech",
+        "salary": 8000,
+        "commission_pct": null,
+        "manager_id": 103,
+        "department_id": 80
+        }
+
+
+### Create an employee [POST /newemployee]
+
+Create an employee, by using post with the complete payload.
+
++ Request (application/json)
+
+        {"LAST_NAME":"TESTINSERT", "FIRST_NAME":"TESTFIRST", "EMAIL":"TESTMAIL", "HIRE_DATE":"25-JUN-15", "JOB_ID":"IT_PROG", "SALARY":6000, "MANAGER_ID":103, "DEPARTMENT_ID":60}
+
++ Response 200 (application/json)
+
+        {
+            "employee_id": 220,
+            "first_name": "TESTFIRST",
+            "last_name": "TESTINSERT",
+            "email": "TESTMAIL",
+            "phone_number": null,
+            "hire_date": "2015-06-25T04:00:00Z",
+            "job_id": "IT_PROG",
+            "salary": 6000,
+            "commission_pct": null,
+            "manager_id": 103,
+            "department_id": 60
+        }
+
+### Update an employee [PUT /updateemployee/{id}]
+
+Update an employee, by using put with the a payload containing: last_name, job_id, salary and department_id.
+
++ Parameters
+    + id: `220` (number, required) - Id of an employee.
+    
++ Request (application/json)
+
+        {"LAST_NAME":"Soni", "JOB_ID":"SA_REP", "SALARY":8000, "DEPARTMENT_ID":80}
+
++ Response 200 (application/json)
+
+        {
+            "employee_id": 220,
+            "first_name": "TESTFIRST",
+            "last_name": "TESTUPDATE",
+            "email": "TESTMAIL",
+            "phone_number": null,
+            "hire_date": "2015-06-25T04:00:00Z",
+            "job_id": "SA_REP",
+            "salary": 8000,
+            "commission_pct": null,
+            "manager_id": 103,
+            "department_id": 80
+        }
+        
+
+
+## Departments Collection [/departments]
+
+### Get a department [GET /department/{id}]
+
+Get a particular department by providing an identifier.
+
++ Parameters
+    + id: 30 (number, required) - Id of a department.
+    
+
++ Response 200 (application/json)
+
+
+        {
+            "department_id": 30,
+            "department_name": "Purchasing",
+            "manager_id": 114,
+            "location_id": 1700
+        }
+        
+
+
+### Get a department and employee [GET /departments/{department_id}/employees/{employee_id}]
+
+Get a particular department by providing a department identifier and a particular employee within that department by providing an employee identifier. 
+
+
++ Parameters
+    + department_id: `30` (number, required) - Id of a department.
+    + employee_id: `119` (number, required) - Id of an employee.
+    
++ Response 200 (application/json)
+
+        {
+            "department_id": 30,
+            "department_name": "Purchasing",
+            "employee_id": 119,
+            "first_name": "Karen",
+            "last_name": "Colmenares"
+        }
