@@ -1,0 +1,167 @@
+FORMAT: 1A
+HOST: http://Accounts.apiblueprint.org/
+
+# BankAccountsAPI
+
+Accounts Web Service
+
+## Accounts Service Operations [/Accounts]
+
+### List All Accounts [GET /v1/accounts]
++  Request (application/json)
+
++ Response 200 (application/json)
+
+ + Body
+ 
+            {
+            "TransactionCreationDate": "Mon, 10 Dec 2018 21:28:52 GMT",
+            "accounts": [
+                {
+                "id": "RS1545437569",
+                "country": "UK",
+                "account_numbers": [
+                    {
+                    "value": "RS1545437569",
+                    "_type": "IBAN"
+                    }
+                    ],
+            "currency": "GBP",
+            "account_name": "Rakesh Soni",
+            "product": "Current Account",
+            "account_type": "Current",
+            "available_balance": "8061.98",
+            "booked_balance": "8061.98",
+            "value_dated_balance": "8061.98",
+            "bank": {
+                "name": "Natwest",
+                "bic": "NWBIC0029",
+                "country": "UK"
+                },
+            "status": "OPEN",
+            "credit_limit": "100",
+            "latest_transaction_booking_date": "2018-12-15",
+            "_links": [
+                {
+                "rel": "details",
+                "href": "/v1/accounts/RS1545437569"
+                },
+                {
+                "rel": "transactions",
+                "href": "/v1/accounts/RS1545437569/transactions"
+                },
+                {
+                "rel": "transdetails",
+                "href": "/v1/accounts/RS1545437569/transdetails/GB2018120103832"
+                }
+            ],
+            {
+            "id": "RS1545437570",
+            "country": "UK",
+            "account_numbers": [
+            {
+            "value": "RS1545437570",
+            "_type": "IBAN"
+            }
+            ],
+            "currency": "GBP",
+            "account_name": "Rakesh Soni",
+            "product": "Regular Saving",
+            "account_type": "Saving",
+            "available_balance": "50001.60",
+            "booked_balance": "3322.50",
+            "value_dated_balance": "23433.50",
+            "bank": {
+            "name": "Natwest",
+            "bic": "NWBIC0029",
+            "country": "UK"
+            },
+             "status": "OPEN",
+            "credit_limit": "100",
+            "_links": [
+            {
+            "rel": "details",
+            "href": "/v1/accounts/RS1545437570"
+            },
+            {
+            "rel": "transactions",
+            "href": "/v1/accounts/RS1545437570/transactions"
+             }
+             ]
+            }
+            ],
+            "_links": [
+                {
+                "rel": "self",
+                "href": "/v1/accounts"
+                }
+            ]
+            }
+            }
+            }
+
+### Get Account Details [GET /v1/accounts/{accountid}]
+
++ Parameters
+    + accountid: `5634442` (number, required) - accountid of an employee.
+
++  Request (application/json)
+
++ Response 200 (application/json)
+
+
+    + Body
+
+             {
+               "TransactionCreationDate": "2018-11-14T06:56:01.169Z",
+               "id": "DK1545437569-DKK",
+               "country": "DK",
+               "account_numbers": [
+                        {
+                        "value": "DK8620001545437569",
+                         "_type": "IBAN"
+                         }
+                  ],
+            "currency": "GBP",
+            "account_name": "Rakesh Soni",
+            "product": "Regular Saving",
+            "account_type": "Saving",
+            "available_balance": "50001.60",
+            "booked_balance": "3322.50",
+            "value_dated_balance": "23433.50",
+            "bank": {
+                "name": "Natwest",
+                "bic": "NWBIC0029",
+                 "country": "UK"
+                 },
+            "status": "OPEN",
+            "credit_limit": "100",
+            "latest_transaction_booking_date": "2018-11-14",
+            "_links": [
+                {
+                "rel": "details",
+                "href": "/v1/accounts/RS1545437569"
+                },
+                {
+                "rel": "transactions",
+                "href": "/v1/accounts/RS1545437569/transactions"
+                },
+                {
+                "rel": "transdetails",
+                "href": "/v1/accounts/RS1545437569/transdetails/GB2018120103832"
+                }
+             ]
+            }
+
+### Get Account All Transactions [GET /v1/accounts/{accountid}/transactions]
+
++  Request (application/json)
+
++ Response 200 (application/json)
+
+### Get Account Transaction Details [GET /v1/accounts/{accountid}/transdetails/{transactionid}]
+
++  Request (application/json)
+
++ Response 200 (application/json)
+
