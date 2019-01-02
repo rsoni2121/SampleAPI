@@ -12,8 +12,9 @@ Accounts Web Service
 
 + Response 200 (application/json)
 
- + Body
- 
+
+    + Body
+
             {
             "TransactionCreationDate": "Mon, 10 Dec 2018 21:28:52 GMT",
             "accounts": [
@@ -26,14 +27,14 @@ Accounts Web Service
                     "_type": "IBAN"
                     }
                     ],
-            "currency": "GBP",
-            "account_name": "Rakesh Soni",
-            "product": "Current Account",
-            "account_type": "Current",
-            "available_balance": "8061.98",
-            "booked_balance": "8061.98",
-            "value_dated_balance": "8061.98",
-            "bank": {
+             "currency": "GBP",
+             "account_name": "Rakesh Soni",
+             "product": "Current Account",
+             "account_type": "Current",
+             "available_balance": "8061.98",
+             "booked_balance": "8061.98",
+             "value_dated_balance": "8061.98",
+             "bank": {
                 "name": "Natwest",
                 "bic": "NWBIC0029",
                 "country": "UK"
@@ -53,16 +54,16 @@ Accounts Web Service
                 {
                 "rel": "transdetails",
                 "href": "/v1/accounts/RS1545437569/transdetails/GB2018120103832"
-                }
-            ],
+                }]
+            },
             {
             "id": "RS1545437570",
             "country": "UK",
             "account_numbers": [
-            {
-            "value": "RS1545437570",
-            "_type": "IBAN"
-            }
+                {
+                "value": "RS1545437570",
+                "_type": "IBAN"
+                }
             ],
             "currency": "GBP",
             "account_name": "Rakesh Soni",
@@ -79,27 +80,24 @@ Accounts Web Service
              "status": "OPEN",
             "credit_limit": "100",
             "_links": [
-            {
-            "rel": "details",
-            "href": "/v1/accounts/RS1545437570"
-            },
-            {
-            "rel": "transactions",
-            "href": "/v1/accounts/RS1545437570/transactions"
-             }
-             ]
+                {
+                "rel": "details",
+                "href": "/v1/accounts/RS1545437570"
+                 },
+                {
+                "rel": "transactions",
+                "href": "/v1/accounts/RS1545437570/transactions"
+                }]
             }
             ],
-            "_links": [
-                {
+            "_links": [{
                 "rel": "self",
                 "href": "/v1/accounts"
-                }
-            ]
-            }
-            }
-            }
-
+                }]
+            }  
+ 
+ 
+ 
 ### Get Account Details [GET /v1/accounts/{accountid}]
 
 + Parameters
@@ -113,12 +111,12 @@ Accounts Web Service
     + Body
 
              {
-               "TransactionCreationDate": "2018-11-14T06:56:01.169Z",
-               "id": "DK1545437569-DKK",
-               "country": "DK",
+               "TransactionCreationDate": "2018-12-14T06:56:01.169Z",
+               "id": "RS1545437570",
+               "country": "UK",
                "account_numbers": [
                         {
-                        "value": "DK8620001545437569",
+                        "value": "RS1545437570",
                          "_type": "IBAN"
                          }
                   ],
@@ -135,20 +133,20 @@ Accounts Web Service
                  "country": "UK"
                  },
             "status": "OPEN",
-            "credit_limit": "100",
-            "latest_transaction_booking_date": "2018-11-14",
+            "credit_limit": "1500",
+            "latest_transaction_booking_date": "2018-12-14",
             "_links": [
                 {
                 "rel": "details",
-                "href": "/v1/accounts/RS1545437569"
+                "href": "/v1/accounts/RS1545437570"
                 },
                 {
                 "rel": "transactions",
-                "href": "/v1/accounts/RS1545437569/transactions"
+                "href": "/v1/accounts/RS1545437570/transactions"
                 },
                 {
                 "rel": "transdetails",
-                "href": "/v1/accounts/RS1545437569/transdetails/GB2018120103832"
+                "href": "/v1/accounts/RS1545437570/transdetails/GB2018120103832"
                 }
              ]
             }
