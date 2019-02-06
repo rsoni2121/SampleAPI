@@ -1,125 +1,11 @@
-FORMAT: 1A
+FFORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
 # UK Open Banking
 
 
-##  Get Account Balances [/open-banking/3.1/aisp/accounts/{AccountId}/balances]
-
-### Get Account Balances [GET ]
-The API provides an AISP with the details of a specific account of the PSU.
-
-    + Parameters
-        + AccountId (string) - The Account unique identifier 
-
-+ Request (application/json)
-
-+ Response 200 (application/json)
-
-    + Headers
-
-            x-fapi-interaction-id: 005W89EeCC7D8hO_MhO5ye00067E0004Dk
-        
-    + Body 
-    
-            {
-              "Data": {
-              "Balance": [
-             {
-               "AccountId": "22289",
-               "Amount": {
-                 "Amount": "1230.00",
-                 "Currency": "GBP"
-               },
-             "CreditDebitIndicator": "Credit",
-               "Type": "InterimAvailable",
-              "DateTime": "2017-04-05T10:43:07+00:00",
-               "CreditLine": [
-                 {
-             "Included": true,
-            "Amount": {
-              "Amount": "1000.00",
-              "Currency": "GBP"
-            },
-            "Type": "Pre-Agreed"
-            }
-            ]
-            }
-              ]
-             },
-              "Links": {
-             "Self": "https://api.alphabank.com/open-banking/v3.1/aisp/accounts/22289/balances/"
-            },
-            "Meta": {
-               "TotalPages": 1
-              }
-            }   
-
-##  Get Balances [/open-banking/3.1/aisp/balances]
-### Get Balances [GET ]
-
-The API provides an AISP with the details of a specific account of the PSU.
-
-    + Parameters
-        + AccountId (string) - The Account unique identifier 
-
-+ Request (application/json)
-    
-+ Response 200 (application/json)
-
-    + Headers
-
-            x-fapi-interaction-id: 005W89EeCC7D8hO_MhO5ye00067E0004Dk
-        
-    + Body 
-    
-             {
-               "Data": {
-             "Balance": [
-             {
-              "AccountId": "22289",
-               "Amount": {
-               "Amount": "1230.00",
-               "Currency": "GBP"
-             },
-             "CreditDebitIndicator": "Credit",
-             "Type": "InterimAvailable",
-             "DateTime": "2017-04-05T10:43:07+00:00",
-             "CreditLine": [
-               {
-                 "Included": true,
-            "Amount": {
-              "Amount": "1000.00",
-              "Currency": "GBP"
-            },
-            "Type": "Pre-Agreed"
-              }
-             ]
-            },
-              {
-              "AccountId": "31820",
-               "Amount": {
-                 "Amount": "57.36",
-                "Currency": "GBP"
-               },
-                "CreditDebitIndicator": "Debit",
-                "Type": "InterimBooked",
-               "DateTime": "2017-05-02T14:22:09+00:00"
-              }
-             ]
-            },
-             "Links": {
-             "Self": "https://api.alphabank.com/open-banking/v3.1/aisp/balances/"
-             },
-            "Meta": {
-              "TotalPages": 1
-            }
-            }
-
 ## Get Accounts [/open-banking/3.1/aisp/accounts]
 ### Get Accounts [GET ]
-
-
 
 The API provides an AISP with the list of accounts of the PSU that he/she has authorized the AISP to acces.
 
@@ -162,22 +48,43 @@ The API provides an AISP with the list of accounts of the PSU that he/she has au
               }
             }
 
+## Get an employe [/open-banking/3.1/aisp/employee/{id}]
+### Get an employee [GET ]
 
-##  Get Account Details [/open-banking/3.1/aisp/accounts/{AccountId}]
+Get a particular employee by providing an identifier.
+
++ Parameters
+    + id: `6543220` (number, required) - Id of an employee.
+    
++ Request (application/json)
+        
++ Response 200 (application/json)
+
+
+ + Body
+    
+            {
+            "AccountId": "54254553443",
+            "Name": "Rakesh Soni"
+            
+            }
+
+    
+## Get  Account Details [/open-banking/3.1/aisp/accounts/{AccountId}]
 ### Get Account Details [GET ]
 
-The API provides an AISP with the details of a specific account of the PSU.
+An AISP may retrieve the account balance information resource for a specific AccountId (which is retrieved in the call to GET /accounts).
 
-    + Parameters
-        + AccountId (string) - The Account unique identifier 
-
++ Parameters
+    + AccountId: `22289` (string, required) - The Account unique identifier 
+    
 + Request (application/json)
         
 + Response 200 (application/json)
 
     + Headers
 
-            x-fapi-interaction-id: 005W89EeCC7D8hO_MhO5ye00067E0004Dk
+           
         
     + Body 
     
@@ -202,7 +109,117 @@ The API provides an AISP with the details of a specific account of the PSU.
               
             }
             
+            
 
+
+
+##  Get Account Balances [/open-banking/3.1/aisp/accounts/{AccountId}/balances]
+### Get Account Balances [GET ]
+The API provides an AISP with the details of a specific account of the PSU.
+
++ Parameters
+    + AccountId: `22289` (string, required) - The Account unique identifier 
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+
+           
         
-###
-##
+    + Body 
+    
+            {
+              "Data": {
+              "Balance": [
+             {
+               "AccountId": "22289",
+               "Amount": {
+                 "Amount": "5230.00",
+                 "Currency": "GBP"
+               },
+             "CreditDebitIndicator": "Credit",
+               "Type": "Interim Available",
+              "DateTime": "2017-04-05T10:43:07+00:00",
+               "CreditLine": [
+                 {
+             "Included": true,
+            "Amount": {
+              "Amount": "1000.50",
+              "Currency": "GBP"
+            },
+            "Type": "Pre-Agreed"
+            }
+            ]
+            }
+              ]
+             },
+              "Links": {
+             "Self": "https://api.alphabank.com/open-banking/v3.1/aisp/accounts/22289/balances/"
+            },
+            "Meta": {
+               "TotalPages": 1
+              }
+            }   
+
+
+##  Get Balances [/open-banking/3.1/aisp/balances]
+### Get Balances [GET ]
+
+If an ASPSP has implemented the bulk retrieval endpoints, an AISP may optionally retrieve the account information resources in bulk.
+
+This will retrieve the resources for all authorised accounts linked to the account-request.
+
++ Request (application/json)
+    
++ Response 200 (application/json)
+
+    + Headers
+
+           
+        
+    + Body 
+    
+             {
+               "Data": {
+             "Balance": [
+             {
+              "AccountId": "22289",
+               "Amount": {
+               "Amount": "1230.00",
+               "Currency": "GBP"
+             },
+             "CreditDebitIndicator": "Credit",
+             "Type": "Interim Available",
+             "DateTime": "2017-04-05T10:43:07+00:00",
+             "CreditLine": [
+               {
+                 "Included": true,
+            "Amount": {
+              "Amount": "1000.50",
+              "Currency": "GBP"
+            },
+            "Type": "Pre-Agreed"
+              }
+             ]
+            },
+              {
+              "AccountId": "31820",
+               "Amount": {
+                 "Amount": "57.36",
+                "Currency": "GBP"
+               },
+                "CreditDebitIndicator": "Debit",
+                "Type": "Interim Booked",
+               "DateTime": "2017-05-02T14:22:09+00:00"
+              }
+             ]
+            },
+             "Links": {
+             "Self": "https://api.alphabank.com/open-banking/v3.1/aisp/balances/"
+             },
+            "Meta": {
+              "TotalPages": 1
+            }
+            }
